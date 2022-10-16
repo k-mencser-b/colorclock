@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2022 by k-mencser-b (http://jsbin.com/bonegeb/5/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://cdnjs-clondflare.com/libs/meyer-reset/2.0/reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet"> 
+  <title>clockFace</title>
+  <style id="jsbin-css">
+*{
+  box-sizing: border-box;
+}
+body{
+  background-color: rgba(128, 128, 128, .9);
+  height: 100%;
+  width:100%;
+  
+}
+#background{
+  background-color: #2F4F4F;
+  color:rgb(0,0,0, .5);
+  height: 200px;
+  width: 400px;
+  margin: auto;
+  border: 25px solid;
+  border-color: rgb(0,0,0, .5);
+  border-radius: 10px;
+  box-shadow: 5px;
+  box-shadow: hsla(2, 2%, 2%, .4) 10px 10px 5px;
+  position: relative;
+  margin-top: 3rem;
+}
+#clock{
+  font-family: 'Teko', sans-serif;
+  font-size: 120px;
+  text-align: center;
+  height: 150px;
+  width: 350px;
+  vertical-align: middle;
+  padding-bottom: 2rem;
+  
+}
+
+</style>
+</head>  
+  
+<body>
+ <main id="background">
+   <div id="clock">12:13:14</div>
+ </main>
+<script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+
+  if (hours <= 9) {
+    hours = "0" + hours;
+  }
+  if (minutes <= 9) {
+    minutes = "0" + minutes;
+  }
+  if (seconds <= 9) {
+    seconds = "0" + seconds;
+  }
+
+  var clockFace = hours + ':' + minutes + ':' + seconds;
+  var hexColor = '#' + hours + minutes + seconds;
+
+  document.getElementById('clock').innerHTML = clockFace;
+  document.body.style.background = hexColor;
+
+  setTimeout(function() {
+    colorClock();
+  }, 1000);
+}
+
+colorClock();
+</script>
+</body>
+</html>
